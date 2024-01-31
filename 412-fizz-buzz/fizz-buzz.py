@@ -2,12 +2,14 @@ class Solution:
     def fizzBuzz(self, n: int) -> List[str]:
         l=[]
         for i in range(1,n+1):
+            t=''
             if(i%3==0 and i%5==0):
-                l.append("FizzBuzz")
+                t+='FizzBuzz'
             elif(i%3==0):
-                l.append("Fizz")
+                t+='Fizz'
             elif(i%5==0):
-                l.append("Buzz")
+                t+='Buzz'
             else:
-                l.append(str(i))
+                t+=f'{i}'
+            l.append(t)
         return l
