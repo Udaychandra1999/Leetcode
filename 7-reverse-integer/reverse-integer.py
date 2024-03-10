@@ -7,7 +7,6 @@ class Solution:
                 x = int(str(x)[1:][::-1])*(-1)
             else:
                 x = int(str(x)[::-1])
-            print(x)
             if x>=2**31-1 or x<=-2**31:
                 return 0
             return x
