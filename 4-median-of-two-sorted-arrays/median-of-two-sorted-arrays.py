@@ -3,7 +3,6 @@ class Solution:
         nums1.extend(nums2)
         nums1 = list(sorted(nums1))
         n = len(nums1)
-        print(n)
         if n%2==0:
             mid = n//2
             print(mid)
