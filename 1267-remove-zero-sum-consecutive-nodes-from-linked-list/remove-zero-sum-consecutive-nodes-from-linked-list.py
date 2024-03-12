@@ -5,28 +5,21 @@
 #         self.next = next
 class Solution:
     def removeZeroSumSublists(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        ptr = head
-        l=[]
-        
-        while ptr != None:
-            l.append(ptr.val)
-            ptr = ptr.next
-        flag =True
-        while(flag):
-            n = len(l)
-            c=0
-            for i in range(n):
-                for j in range(i+1,n+1):
-                    if sum(l[i:j])==0:
-                        c+=1
-                        del l[i:j]
-            if c == 0:
-                flag = False
-        print(l)
-        ptr = head2 = ListNode(0)
-        for e in l:
-            if e!=0:
-                ptr.next = ListNode(e)
-                ptr = ptr.next
+        dummy = ListNode(0, head)
+        prefix = 0
+        prefixToNode = {0: dummy}
 
-        return head2.next
+        while head:
+            prefix += head.val
+            prefixToNode[prefix] = head
+            head = head.next
+
+        prefix = 0
+        head = dummy
+
+        while head:
+            prefix += head.val
+            head.next = prefixToNode[prefix].next
+            head = head.next
+
+        return dummy.next
