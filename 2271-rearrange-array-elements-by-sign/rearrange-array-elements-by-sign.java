@@ -10,21 +10,11 @@ class Solution {
                 neg.add(i);
 
         }
-        int i,l,r;
-        i=l=r=0;
-        while(i<nums.length)
+        int n = nums.length/2;
+        for(int i =0;i<n;i++)
         {
-            if(i%2==0)
-            {
-                nums[i] = pos.get(l);
-                l++;
-            }
-            else
-            {
-                nums[i] = neg.get(r);
-                r++;
-            }
-            i++;
+            nums[i*2] =  pos.get(i);
+            nums[2*i+1] = neg.get(i);
         }
 
         return nums;
