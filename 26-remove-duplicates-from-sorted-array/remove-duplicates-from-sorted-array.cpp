@@ -5,15 +5,12 @@ public:
         int i =1;
         while(i<nums.size())
         {
-            if(nums[counter]==nums[i])
-            {
-                i++;
-            }
-            else
+            if(nums[counter]!=nums[i])
             {
                 nums[counter+1] = nums[i];
                 counter++;
             }
+            i++;
         }
         return counter+1;
     }
