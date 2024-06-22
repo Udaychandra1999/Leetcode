@@ -1,12 +1,17 @@
-class Solution:
-    def reverse(self,x:int) -> int:
-        if x>=2**31-1 or x<=-2**31:
-            return 0
+class Solution(object):
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        if x>0 and x<2**31:
+            y = int(str(x)[::-1])
+            return y if y<(2**31) else 0
+        elif x>=(-2**31):
+            y = -1* int(str(x*-1)[::-1])
+            return y if y>=(-2**31) else 0
         else:
-            if x<0:
-                x = int(str(x)[1:][::-1])*(-1)
-            else:
-                x = int(str(x)[::-1])
-            if x>=2**31-1 or x<=-2**31:
-                return 0
-            return x
+            return 0
+
+
+        
