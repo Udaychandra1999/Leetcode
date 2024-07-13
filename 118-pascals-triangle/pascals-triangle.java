@@ -6,8 +6,10 @@ class Solution {
         for(int i=0;i<re;i++)
         {
             prod = prod*(n-i);
-            prod = prod/(i+1);
+            prod= prod/(i+1);
+
         }
+        
         return prod;
     }
     public List<List<Integer>> generate(int numRows) {
