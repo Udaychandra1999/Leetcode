@@ -10,7 +10,6 @@ class Solution:
             else:
                 c[i] = c[i] +1
         k=0
-        n = len(c)
         for i in sorted(c.keys()):
             while c[i]>0:
                 nums[k] = i
