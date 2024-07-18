@@ -3,17 +3,23 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        c = dict()
+        c0,c1,c2=0,0,0
         for i in nums:
-            if i not in c:
-                c[i] =1
+            if i==0:
+                c0+=1
+            elif i==1:
+                c1+=1
             else:
-                c[i] = c[i] +1
+                c2+=1
         k=0
-        for i in sorted(c.keys()):
-            while c[i]>0:
-                nums[k] = i
-                k+=1
-                c[i]-=1
+        for i in range(c0):
+            nums[k]= 0
+            k+=1
+        for i in range(c1):
+            nums[k]=1
+            k+=1
+        for i in range(c2):
+            nums[k]=2
+            k+=1
 
         
