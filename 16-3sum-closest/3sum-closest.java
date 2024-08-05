@@ -1,18 +1,31 @@
 class Solution {
     public int threeSumClosest(int[] nums, int target) {
-        int res = Integer.MAX_VALUE;
+        int res = nums[0]+nums[1]+nums[2];
         int n = nums.length;
-        for(int i=0;i<n;i++)
+        if(n==3)
         {
-            for(int j=i+1;j<n;j++)
+            return res;
+        }
+        int i,j,k;
+        Arrays.sort(nums);
+        for(i=0;i<n-2;i++)
+        {
+            j=i+1;
+            k=n-1;
+            while(j<k)
             {
-                for(int k=j+1;k<n;k++)
+                int s = nums[i]+nums[j]+nums[k];
+                if(Math.abs(target-s)<Math.abs(res-target))
                 {
-                    int s = nums[i]+nums[j]+nums[k];
-                    if(Math.abs(res-target)>Math.abs(s-target))
-                    {
-                        res = s;
-                    }
+                    res = s;
+                }
+                if(s<target)
+                {
+                    j++;
+                }
+                else
+                {
+                    k--;
                 }
             }
         }
