@@ -1,20 +1,20 @@
 class Solution:
-   
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        low = 1
-        def calctotal(piles:List[int],h:int)->int:
-            totalh=0
-            for i in piles:
-                totalh+=math.ceil(i/h)
-            return totalh
-        high = piles[0]
-        for i in range(1,len(piles)):
-            high = max(high,piles[i])
-        while low<=high:
+        def ceil(a:float)->int:
+            x= int(a)
+            if a == x:
+                return a
+            else:
+                return x+1 
+        res = max(piles)
+        low,high = 1,max(piles)
+        while(low<=high):
             mid = (low+high)//2
-            th = calctotal(piles,mid)
-            if th<=h:
-                high = mid -1
+            vec = list(map(lambda i:ceil(i/mid),piles))
+            if sum(vec)<=h:
+                res = min(res,mid)
+                high = mid-1
             else:
                 low = mid+1
-        return low
+        return res
+
