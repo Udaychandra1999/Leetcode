@@ -1,19 +1,16 @@
 class Solution {
     public int mySqrt(int x) {
-        int r = x;
-        int res = x;
-        while(res>0){
-            double rx = (0.5)*(r+x/r);
-            if(rx>r){
-                res = (int) (rx-r);
-            }else {
-                res = (int)(r-rx);
-            }
-            r = (int)rx;
+        if(x==0 || x == 1){
+            return x;
         }
-        if(r<0){
-            r = -r;
+        double rx,r;
+        r = (double)x;
+        rx = (0.5*(r+x/r));
+        while(rx!=r){
+            r=rx;
+            rx = (0.5*(r+x/r));
         }
-        return r;
+        
+        return (int)r;
     }
 }
