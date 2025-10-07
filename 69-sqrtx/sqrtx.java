@@ -1,23 +1,19 @@
 class Solution {
     public int mySqrt(int x) {
-        if(x==0||x==1){
-            return x;
-        }
-        long low,high,mid;
-        int res=0;
-        low = 1;
-        high = x;
-        while(low<=high){
-            mid = (low+high)/2;
-            if(mid*mid == x){
-                return (int)mid;
-            }else if(mid*mid>x){
-                high = mid -1;
+        int r = x;
+        int res = x;
+        while(res>0){
+            double rx = (0.5)*(r+x/r);
+            if(rx>r){
+                res = (int) (rx-r);
             }else {
-                res = (int)mid;
-                low = mid +1;
+                res = (int)(r-rx);
             }
+            r = (int)rx;
         }
-        return res;
+        if(r<0){
+            r = -r;
+        }
+        return r;
     }
 }
