@@ -1,7 +1,7 @@
 class Solution {
 public:
     bool judgeSquareSum(int c) {
-        long l,h,sn,m;
+        long l,h,sn;
         l=0;
         h=sqrt(c);
         while(l<=h){
