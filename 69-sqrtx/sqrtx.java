@@ -4,13 +4,15 @@ class Solution {
             return x;
         }
         double rx,r;
-        r = (double)x;
-        rx = (0.5*(r+x/r));
+        r =x;
+        rx = (x+1)/2;
         while(rx!=r){
             r=rx;
             rx = (0.5*(r+x/r));
         }
-        
+        if(r<0){
+            r = -r;
+        }
         return (int)r;
     }
 }
