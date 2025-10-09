@@ -13,7 +13,7 @@ public:
                 alice+=x;
             }
         }
-        if(alice>(total-alice) || (alice<(total-alice))){
+        if(total != alice*2){
             return true;
         }
         return false;
